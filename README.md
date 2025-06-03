@@ -43,16 +43,27 @@ Makine Öğrenmesi Algoritmaları:
 
 Bu projede kullanılan veri seti, UCI Machine Learning Repository (https://archive.ics.uci.edu/) üzerinden temin edilmiştir. Toplamda 4424 gözlem ve 37 özellik içeren bu veri seti, öğrencilerin demografik yapıları, akademik geçmişleri ve sosyoekonomik durumlarına ilişkin geniş bir yelpazede bilgi sunmaktadır. Öznitelikler üç ana grupta toplanabilir: Demografik bilgiler (cinsiyet, yaş, uyruk, medeni durum, ebeveyn meslek ve eğitim durumu), akademik bilgiler (üniversiteye giriş notu, önceki eğitim notu, dönemlik ders ve sınav sayıları, ders geçme durumu) ve sosyoekonomik bilgiler (harç ödeme düzeni, burs durumu, borçluluk, işsizlik ve enflasyon oranı). Modelleme sürecinde hedef değişken olarak Target sütunu kullanılmıştır ve bu sütun, öğrencinin akademik durumunu üç farklı sınıfta belirtmektedir: Dropout (okulu bırakmış), Enrolled (kayıtlı) ve Graduate (mezun).
 
+![Hedef değişken dağılım grafiği](images/sınıfdagılımı.png)
+
 
 Hedef değişkenin sınıf dağılımına bakıldığında, 2209 öğrenci mezun, 1421 öğrenci okulu bırakmış ve yalnızca 794 öğrenci hâlâ kayıtlı durumdadır. Bu dağılım, sınıflar arasında belirgin bir dengesizlik olduğunu göstermektedir. Özellikle “Enrolled” sınıfı sayıca azınlıkta olduğu için bu sınıfın öğrenilmesi makine öğrenmesi algoritmaları açısından daha zorlayıcı hale gelmektedir. Bu nedenle modelleme sürecinde, sınıf dengesizliğini gidermek amacıyla SMOTE (Synthetic Minority Over-sampling Technique) gibi veri dengeleme teknikleri kullanılmıştır.
 
 ## 📊 Veri Keşfi ve Görselleştirme
 
 - Histogramlar ile dağılım analizi
+  
+![Bazı histogram grafikleri](images/histogramlar.png)
+
+![Bazı histogram grafikleri](images/histogramlar2.png)
 
 - Boxplot ile sayısal değişkenlerin Target'a göre karşılaştırılması
 
+![boxplot grafiği](images/boxplot.png)
+
 - Countplot ile kategorik değişkenlerin sınıflara göre dağılımı
+
+  ![countplot grafiği](images/countplot.png)
+
 
 - **Öne çıkan bulgular:**
 
@@ -103,10 +114,8 @@ Hedef değişkenin sınıf dağılımına bakıldığında, 2209 öğrenci mezun
 
 ## 📈 Performans Karşılaştırması
 
-Model	Accuracy	F1-Score (0)	F1-Score (1)	F1-Score (2)	Macro Avg	Weighted Avg
-Decision Tree + SMOTE	0.6551	0.71	0.43	0.75	0.63	0.68
-Random Forest + SMOTE	0.7334	0.72	0.50	0.84	0.69	0.74
-XGBoost + SMOTE	0.7651	0.77	0.54	0.85	0.72	0.77
+![Performans karşılaştırması](images/modelkarşılaştırması.png)
+
 
 📌 Sonuç: XGBoost modeli, sınıf dengesini koruyarak en yüksek başarıyı göstermiştir.
 
